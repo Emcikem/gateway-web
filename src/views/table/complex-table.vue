@@ -51,7 +51,7 @@
           <el-tag>{{ row.type | typeFilter }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="Author" width="110px" align="center">
+      <el-table-column label="负责人" width="110px" align="center">
         <template slot-scope="{row}">
           <span>{{ row.author }}</span>
         </template>
@@ -72,17 +72,17 @@
           <span v-else>0</span>
         </template>
       </el-table-column>
-      <el-table-column label="Status" class-name="status-col" width="100">
+      <el-table-column label="访问" class-name="status-col" width="100">
         <template slot-scope="{row}">
           <el-tag :type="row.status | statusFilter">
             {{ row.status }}
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="Actions" align="center" width="230" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="{row,$index}">
           <el-button type="primary" size="mini" @click="handleUpdate(row)">
-            Edit
+            编辑
           </el-button>
           <el-button v-if="row.status!='published'" size="mini" type="success" @click="handleModifyStatus(row,'published')">
             Publish
@@ -91,7 +91,7 @@
             Draft
           </el-button>
           <el-button v-if="row.status!='deleted'" size="mini" type="danger" @click="handleDelete(row,$index)">
-            Delete
+            删除
           </el-button>
         </template>
       </el-table-column>
